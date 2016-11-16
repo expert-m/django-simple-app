@@ -1,7 +1,6 @@
-from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView
-from core.models import Region, Customer, Provider
+from core.models import Customer, Provider
 
 
 class HomeView(TemplateView):
@@ -25,7 +24,6 @@ class ProviderView(TemplateView):
     template_name = 'core/provider.html'
 
     def get(self, request, id):
-
         return render(request, 'core/provider.html', {
             'provider': get_object_or_404(Provider, id=id)
         })
