@@ -1,0 +1,27 @@
+{% extends "core/base.html" %}
+
+{% block title %}Поиск{% endblock %}
+
+{% block content %}
+    {% if customer %}
+        <h1>{{ customer.name }}</h1>
+        {% for region in customer.regions.all %}
+            <span class="label label-primary">{{ region }}</span>
+        {% endfor %}
+        <br><br><br>
+        {% for provider in providers %}
+            <div class="panel panel-default">
+                <div class="panel-heading"><a href="{% url 'core:provider' provider.id %}">{{ provider.name }}</a></div>
+                <div class="panel-body">
+                    {% for region in provider.regions.all %}
+                        {% if region in customer.regions.all %}
+                            <span class="label label-default">{{ region }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h1>Пусто</h1>
+    {% endif %}
+{% endblock %}

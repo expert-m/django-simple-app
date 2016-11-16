@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "core/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "core/css/style.css" %}" rel="stylesheet">
+</head>
+
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Project</a>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</div>
+<!-- /.container -->
+
+<script src="{% static "core/js/jquery.js" %}"></script>
+<script src="{% static "core/js/bootstrap.min.js" %}"></script>
+</body>
+
+</html>

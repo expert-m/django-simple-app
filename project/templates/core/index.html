@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <form action="/search/" method="get">
+        <div class="form-group">
+            <label for="name_customer">Название компании-заказчика:</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="name_customer" name="name_customer">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Отправить</button>
+                </span>
+            </div>
+            <p class="help-block">Пример: Томика</p>
+        </div>
+    </form>
+{% endblock %}

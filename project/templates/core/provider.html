@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+
+{% block title %}{{ provider.name }}{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">{{ provider.name }}</div>
+        <div class="panel-body">
+            {% for region in provider.regions.all %}
+                <span class="label label-default">{{ region }}</span>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
